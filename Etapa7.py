@@ -66,18 +66,18 @@ def contrasenia_igual(contrasenia,contrasenia2):
 
 def agregar_a_archivos(nombre,contrasenia):
     #Abre archivo usuario.csv y escribe nombre y contraseñas si son correctos
-    
-    usuario = open("usuario.csv","w")
+    usuario = open("usuario.csv","a")
     usuario.write(nombre)
     usuario.write(";")
     usuario.write(contrasenia)
+    usuario.write("\n")
     usuario.close()
 
-def main(nombre,contrasenia):
-
+def main(nombre,contrasenia,contrasenia2):
     validaN=validar_usuario(nombre)
     validaC=validar_contrasenia(contrasenia)
-    validaI=contrasenia_igual(contrasenia,contrasenia2)
-    if validaC and validaN:
+    if validaC:
+        validaI=contrasenia_igual(contrasenia,contrasenia2)
+    if validaI and validaN:
         agregar_a_archivos(nombre,contrasenia)
         
