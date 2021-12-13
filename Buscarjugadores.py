@@ -6,9 +6,6 @@ def leer_usuarios(usuario):
         linea="",""
     return linea
 
-    
-
-
 def buscar_nombre(nombre,contrasenia):
     jugadores=[]
     encontrado=False
