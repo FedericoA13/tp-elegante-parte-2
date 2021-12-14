@@ -104,9 +104,44 @@ def interfaz_grafica():
         
         etiqueta_ingreso = Label(ventana_ingreso, text = "Ingreso y validación de usuarios", font = ("Algerian", 17)).place(x=4, y=10)
         
+        jugadores = []
+        
         def validar_usuario():
-            b=1 #aca debería buscar en el archivo usuarios.csv si el usuario existe,
-            # se puede agregar una opción de recuperar contraseña en caso de que el usuario se la haya olvidado
+            
+            def leer_usuarios(usuario):
+                leer_linea = usuario.readline()
+                if leer_linea:
+                    linea = leer_linea.rstrip("\n").split(";")
+                else:
+                    linea = "", ""
+                return linea
+            
+            
+            def buscar_nombre(nombre, contrasenia):
+                encontrado = False
+                try:
+                    usuario = open("usuario.csv","r")
+                except FileNotFoundError:
+                    print("El archivo no existe")
+                else:
+                    LineaNombre, LineaContrasenia = leer_usuarios(usuario)
+                    while not encontrado and LineaNombre:
+                        if nombre in LineaNombre and contrasenia in LineaContrasenia:
+                            if not nombre in jugadores:
+                                jugadores.append(nombre)
+                                encontrado=True
+                            #else:
+                            #   pass
+                        else:
+                            LineaNombre, LineaContrasenia = leer_usuarios(usuario)
+                usuario.close()
+                #print(jugadores)
+                
+                return
+            
+            #lista_usuarios_validados.insert(END, usuario.get())
+        
+            buscar_nombre(usuario.get(),contrasenia.get())
         
         def siguiente_usuario():
             #esto lo único que hace es eliminar los datos cargados en los cuadros de entrada, también podría eliminarlos el
