@@ -41,6 +41,17 @@ def interfaz_grafica_final():
         etiqueta_aciertos = Label(ventana_resumen, text=" Aciertos ", font = (15)).place(x=290, y=60)
         etiqueta_intentos = Label(ventana_resumen, text="Intentos", font = (15)).place(x=410, y=60)
         
+        with open("partidas.csv","r") as partidas:
+            altura=100
+            for lineas in partidas:
+                fecha,hora,nombre,aciertos,intentos=lineas.rstrip("\n").split(";")
+                etiqueta_fecha = Label(ventana_resumen, text=fecha,bg="light blue", fg="Red", font = (15)).place(x=20, y=altura)
+                etiqueta_fecha = Label(ventana_resumen, text=hora,bg="light blue",fg="Red", font = (15)).place(x=100, y=altura)
+                etiqueta_fecha = Label(ventana_resumen, text=nombre,bg="light blue",fg="Red", font = (15)).place(x=180, y=altura)
+                etiqueta_fecha = Label(ventana_resumen, text=aciertos,bg="light blue",fg="Red", font = (15)).place(x=290, y=altura)
+                etiqueta_fecha = Label(ventana_resumen, text=intentos,bg="light blue",fg="Red", font = (15)).place(x=410, y=altura)
+                altura+=40
+        
         
         
         
