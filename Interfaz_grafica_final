@@ -1,0 +1,52 @@
+from tkinter import *
+
+def interfaz_grafica_final():
+    ventana= Tk()
+    ventana.title("Resultados Finales.")
+    ventana.geometry("800x600")
+    ventana.resizable(1, 1)
+    ventana.config(bg = "black")
+
+    miframe = Frame()
+    miframe.pack()
+
+    miframe.config(bg = "lightblue")
+    miframe.config(width = "750", height = "570")
+    miframe.config(bd=10)
+    miframe.config(relief = "sunken")
+
+
+    etiqueta_titulo_ranking = Label(miframe, text = "Tabla de puntajes", font = ("Algerian", 17)).place(x=230, y=10)
+    etiqueta_nombre = Label(miframe, text="Nombres", font = (15)).place(x=20, y=60)
+    etiqueta_nombre = Label(miframe, text="Aciertos", font = (15)).place(x=140, y=60)
+    etiqueta_nombre = Label(miframe, text=" Total de intentos ", font = (15)).place(x=250, y=60)
+    etiqueta_nombre = Label(miframe, text=" Promedio de intentos ", font = (15)).place(x=400, y=60)
+
+    Imagen_Ganador = PhotoImage(file = "medalla_1.png")
+    cuadro_imagen = Label(miframe, image = Imagen_Ganador).place(x=580, y=90)
+    
+
+    def resumen_final():
+        ventana.withdraw()
+        ventana_resumen = Toplevel()
+        ventana_resumen.title('Resumen Partidas.')
+        ventana_resumen.config(width = "600", height = "270")
+        ventana_resumen.config(bg = "light blue")
+        ventana_resumen.resizable(0, 0)
+
+        etiqueta_resumen = Label(ventana_resumen, text = "Resumen de Partidas", font = ("Algerian", 17)).place(x=170, y=10)
+        etiqueta_fecha = Label(ventana_resumen, text="Fecha", font = (15)).place(x=20, y=60)
+        etiqueta_hora = Label(ventana_resumen, text="Hora", font = (15)).place(x=100, y=60)
+        etiqueta_nombre = Label(ventana_resumen, text=" Nombre ", font = (15)).place(x=180, y=60)
+        etiqueta_aciertos = Label(ventana_resumen, text=" Aciertos ", font = (15)).place(x=290, y=60)
+        etiqueta_intentos = Label(ventana_resumen, text="Intentos", font = (15)).place(x=410, y=60)
+        
+        
+        
+        
+
+
+    boton_ingreso_usuarios = Button(miframe, text = "Partida nueva", width = 24, font = (15)).place(x=100, y=500)
+    boton_usuarios_nuevos = Button(miframe, text = "Terminar Juego", width = 24, font = (15),command=resumen_final).place(x=400, y=500)    
+    
+    ventana.mainloop()
