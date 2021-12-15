@@ -21,6 +21,24 @@ def interfaz_grafica_final():
     etiqueta_nombre = Label(miframe, text="Aciertos", font = (15)).place(x=140, y=60)
     etiqueta_nombre = Label(miframe, text=" Total de intentos ", font = (15)).place(x=250, y=60)
     etiqueta_nombre = Label(miframe, text=" Promedio de intentos ", font = (15)).place(x=400, y=60)
+    posicion=1
+    altura=100
+    
+   
+    for nombre,puntuaciones in jugadores.items():
+        etiquetas_jugadores_partida= Label(miframe, text=f"{posicion}- {nombre}",font=(15)).place(x=20,y=altura)
+        etiquetas_jugadores_partida= Label(miframe, text=f"{puntuaciones[0]}",font=(15)).place(x=140,y=altura)
+        etiquetas_jugadores_partida= Label(miframe, text=f"{puntuaciones[1]}",font=(15)).place(x=250,y=altura)
+        etiquetas_jugadores_partida= Label(miframe, text=f"{puntuaciones[2]}",font=(15)).place(x=400,y=altura)
+        posicion+=1
+        altura+=4
+
+
+    etiqueta_titulo_ranking = Label(miframe, text = "Tabla de puntajes", font = ("Algerian", 17)).place(x=230, y=10)
+    etiqueta_nombre = Label(miframe, text="Nombres", font = (15)).place(x=20, y=60)
+    etiqueta_nombre = Label(miframe, text="Aciertos", font = (15)).place(x=140, y=60)
+    etiqueta_nombre = Label(miframe, text=" Total de intentos ", font = (15)).place(x=250, y=60)
+    etiqueta_nombre = Label(miframe, text=" Promedio de intentos ", font = (15)).place(x=400, y=60)
 
     Imagen_Ganador = PhotoImage(file = "medalla_1.png")
     cuadro_imagen = Label(miframe, image = Imagen_Ganador).place(x=580, y=90)
