@@ -406,17 +406,16 @@ def interfaz_grafica_final(diccionario):
     boton_usuarios_nuevos = Button(miframe, text = "Terminar Juego", width = 24, font = (15),command=resumen_final).place(x=300, y=500)    
     ventana.mainloop()
 
-"""
 def agregar_resumen(diccionario,hora_finalizacion,fecha_partida):
     try:
-        partidas=open("partidas.csv","a")
+        partidas=open("c:/Users/Pablo/OneDrive/Documentos/Algoritmos y Programacion/Segundo cuatrimestre/tp/Tp parte 2/partidas.csv","w")
     except FileNotFoundError:
         print("Archivo no encontrado.")
     else:
         for nombre,puntajes in diccionario.items():
-            partidas.write(fecha_partida)
+            partidas.write(str(fecha_partida))
             partidas.write(";")
-            partidas.write(hora_finalizacion)
+            partidas.write(str(hora_finalizacion))
             partidas.write(";")
             partidas.write(nombre)
             partidas.write(";")
@@ -425,6 +424,5 @@ def agregar_resumen(diccionario,hora_finalizacion,fecha_partida):
             partidas.write(str(puntajes[1]))
             partidas.write("\n")
         partidas.close()
- """
         
 main()
