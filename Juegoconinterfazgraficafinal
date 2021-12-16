@@ -310,10 +310,8 @@ def main():
     interfaz_grafica_final(diccionario_ordenado)
     
 
-    #ganador_memotest(diccionario_jugadores, matriz_jugadores)
-
 def ordenar_diccionario(diccionario):
-    diccionario=dict(sorted(diccionario.items(), key=lambda item:item[0][0],reverse=False))
+    diccionario=dict(sorted(diccionario.items(), key=lambda item:item[1][0],reverse=True))
     return diccionario
 
 
