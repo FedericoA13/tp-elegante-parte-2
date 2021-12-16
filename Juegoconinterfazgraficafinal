@@ -369,7 +369,7 @@ def interfaz_grafica_final(diccionario):
 
 
 
-    Imagen_Ganador = PhotoImage(file = "c:/Users/Pablo/OneDrive/Documentos/Algoritmos y Programacion/Segundo cuatrimestre/tp/Tp parte 2/medalla_1.png")
+    Imagen_Ganador = PhotoImage(file = "medalla_1.png")
     cuadro_imagen = Label(miframe, image = Imagen_Ganador).place(x=20, y=90)
     
 
@@ -389,7 +389,7 @@ def interfaz_grafica_final(diccionario):
         etiqueta_aciertos = Label(ventana_resumen, text=" Aciertos ", font = (15)).place(x=290, y=50)
         etiqueta_intentos = Label(ventana_resumen, text="Intentos", font = (15)).place(x=410, y=50)
 
-        with open("c:/Users/Pablo/OneDrive/Documentos/Algoritmos y Programacion/Segundo cuatrimestre/tp/Tp parte 2/partidas.csv","r") as partidas:
+        with open("partidas.csv","r") as partidas:
             altura=100
             for lineas in partidas:
                 fecha_partida,hora_finalizacion,nombre_jugador,aciertos,intentos=lineas.rstrip("\n").split(";")
@@ -411,7 +411,7 @@ def interfaz_grafica_final(diccionario):
 """
 def agregar_resumen(diccionario,hora_finalizacion,fecha_partida):
     try:
-        partidas=open("c:/Users/Pablo/OneDrive/Documentos/Algoritmos y Programacion/Segundo cuatrimestre/tp/Tp parte 2/partidas.csv","a")
+        partidas=open("partidas.csv","a")
     except FileNotFoundError:
         print("Archivo no encontrado.")
     else:
