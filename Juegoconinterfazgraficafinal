@@ -223,7 +223,7 @@ def main():
     contador_intentos=0
     letras_descubiertas_jugador_shuffle_1 = 0  # contador letras descubiertas del jugador 1 de la matriz mezclada
     letras_descubiertas_jugador_shuffle_2 = 0  # contador letras descubiertas del jugador 2 de la matriz mezclada
-
+    partida=0
     print("Comenzará jugando:", turno_jugador[JugadorTurno])
     while letras_descubiertas < int(const.FILAS * const.COLUMNAS / 2) :
             contador_posicion = 1
@@ -299,7 +299,7 @@ def main():
                         print("Muy bien", turno_jugador[JugadorTurno],
                             "encontraste un par de letras iguales. Ya no quedan más letras por encontrar")
                         
-
+    partida+=1
     tiempo_final = default_timer()
     hora_finalizacion=time.strftime("%H:%M")
     fecha_partida=time.strftime("%d-%m")
@@ -307,7 +307,7 @@ def main():
     diccionario_ordenado=ordenar_diccionario(diccionario_jugadores)
     tiempo_total(tiempo_inicial, tiempo_final)
     agregar_resumen(diccionario_ordenado,hora_finalizacion,fecha_partida)
-    interfaz_grafica_final(diccionario_ordenado)
+    interfaz_grafica_final(diccionario_ordenado,partida)
     
 
 def ordenar_diccionario(diccionario):
